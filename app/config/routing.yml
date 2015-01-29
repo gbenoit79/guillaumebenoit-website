@@ -1,6 +1,6 @@
 gbs_blog:
     resource: "@GbsBlogBundle/Resources/config/routing.yml"
-    prefix:   /blog
+    prefix:   /
 
 app:
     resource: @AppBundle/Controller/
