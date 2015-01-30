@@ -91,7 +91,7 @@ class PostController extends Controller
      * Finds and displays a Post entity.
      *
      */
-    public function showAction($id)
+    public function showAction($id, $slug)
     {
         $em = $this->getDoctrine()->getManager();
 
