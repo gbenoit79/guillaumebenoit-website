@@ -38,9 +38,9 @@ class Post
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="text")
+     * @ORM\Column(name="body", type="text")
      */
-    private $content;
+    private $body;
 
 
     /**
@@ -77,26 +77,26 @@ class Post
     }
 
     /**
-     * Set content
+     * Set body
      *
-     * @param string $content
+     * @param string $body
      * @return Post
      */
-    public function setContent($content)
+    public function setBody($body)
     {
-        $this->content = $content;
+        $this->body = $body;
 
         return $this;
     }
 
     /**
-     * Get content
+     * Get body
      *
      * @return string 
      */
-    public function getContent()
+    public function getBody()
     {
-        return $this->content;
+        return $this->body;
     }
 
     /**

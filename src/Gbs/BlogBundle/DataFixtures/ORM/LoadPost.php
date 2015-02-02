@@ -13,7 +13,7 @@ class LoadPost implements FixtureInterface
         for ($i = 0; $i < 20; $i++) {
             $post = new Post();
             $post->setTitle("#{$i} post");
-            $post->setContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean cursus egestas dolor.');
+            $post->setBody('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean cursus egestas dolor.');
             $manager->persist($post);
         }
 
