@@ -30,17 +30,33 @@ class Post
     private $title;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="body", type="text")
+     */
+    private $body;
+
+    /**
      * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(length=100, unique=true)
      */
     private $slug;
 
     /**
-     * @var string
+     * @var datetime $created
      *
-     * @ORM\Column(name="body", type="text")
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
      */
-    private $body;
+    private $created;
+
+    /**
+     * @var datetime $updated
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updated;
 
 
     /**
@@ -120,5 +136,25 @@ class Post
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }
