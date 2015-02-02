@@ -1,0 +1,7 @@
+gbs_blog:
+    resource: "@GbsBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation

@@ -1,0 +1,30 @@
+post:
+    path:     /
+    defaults: { _controller: "GbsBlogBundle:Post:index" }
+
+post_show:
+    path:     /{id}/show/{slug}
+    defaults: { _controller: "GbsBlogBundle:Post:show" }
+
+post_new:
+    path:     /new
+    defaults: { _controller: "GbsBlogBundle:Post:new" }
+
+post_create:
+    path:     /create
+    defaults: { _controller: "GbsBlogBundle:Post:create" }
+    requirements: { _method: post }
+
+post_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GbsBlogBundle:Post:edit" }
+
+post_update:
+    path:     /{id}/update
+    defaults: { _controller: "GbsBlogBundle:Post:update" }
+    requirements: { _method: post|put }
+
+post_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GbsBlogBundle:Post:delete" }
+    requirements: { _method: post|delete }
