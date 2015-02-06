@@ -27,9 +27,11 @@
                     <li>
                         <a href="{{ path('post_show', { 'id': entity.id, 'slug': entity.slug }) }}">show</a>
                     </li>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <li>
                         <a href="{{ path('post_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
+                    {% endif %}
                 </ul>
                 </td>
             </tr>
@@ -37,11 +39,13 @@
         </tbody>
     </table>
 
-        <ul>
+    {% if is_granted('ROLE_ADMIN') %}
+    <ul>
         <li>
             <a href="{{ path('post_new') }}">
                 Create a new entry
             </a>
         </li>
     </ul>
-    {% endblock %}
+    {% endif %}
+{% endblock %}

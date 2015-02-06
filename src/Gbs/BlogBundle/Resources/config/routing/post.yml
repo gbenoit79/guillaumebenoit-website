@@ -7,24 +7,24 @@ post_show:
     defaults: { _controller: "GbsBlogBundle:Post:show" }
 
 post_new:
-    path:     /new
+    path:     /admin/post/new
     defaults: { _controller: "GbsBlogBundle:Post:new" }
 
 post_create:
-    path:     /create
+    path:     /admin/post/create
     defaults: { _controller: "GbsBlogBundle:Post:create" }
     requirements: { _method: post }
 
 post_edit:
-    path:     /{id}/edit
+    path:     /admin/post/{id}/edit
     defaults: { _controller: "GbsBlogBundle:Post:edit" }
 
 post_update:
-    path:     /{id}/update
+    path:     /admin/post/{id}/update
     defaults: { _controller: "GbsBlogBundle:Post:update" }
     requirements: { _method: post|put }
 
 post_delete:
-    path:     /{id}/delete
+    path:     /admin/post/{id}/delete
     defaults: { _controller: "GbsBlogBundle:Post:delete" }
     requirements: { _method: post|delete }
