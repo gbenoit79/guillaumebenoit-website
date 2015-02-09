@@ -3,12 +3,12 @@
   "description": "A blog powered by Symfony",
   "repository": "https://github.com/gbenoit79/guillaumebenoit-website",
   "logo": "http://symfony.com/logos/symfony_black_03.svg",
-  "keywords": ["symfony"]
+  "keywords": ["symfony", "postgresql"]
   "env": {
     "SYMFONY_ENV": "prod"
   }
   "addons": [
-    "cleardb"
+    "heroku-postgresql:hobby-dev"
   ]
   "scripts": {
     "postdeploy": "php app/console doctrine:migration:migrate"
