@@ -23,7 +23,9 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "doctrine/dbal": "~2.4.4",
         "ext-intl": "*",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "doctrine/migrations": "dev-master",
+        "doctrine/doctrine-migrations-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
