@@ -16,12 +16,19 @@ class HerokuEnvironment
 
         if ($url) {
             $url = parse_url($url);
+
+            $databaseDriver = 'pdo_mysql';
+            if ($url['scheme'] === 'postgres') {
+                $databaseDriver = 'pdo_pgsql';
+            }
+            $databaseName = substr($url['path'], 1);
+
+            putenv("SYMFONY__DATABASE_DRIVER={$databaseDriver}");
             putenv("SYMFONY__DATABASE_HOST={$url['host']}");
+            putenv("SYMFONY__DATABASE_PORT={$url['port']}");
             putenv("SYMFONY__DATABASE_USER={$url['user']}");
             putenv("SYMFONY__DATABASE_PASSWORD={$url['pass']}");
-
-            $db = substr($url['path'], 1);
-            putenv("SYMFONY__DATABASE_NAME={$db}");
+            putenv("SYMFONY__DATABASE_NAME={$databaseName}");
         }
 
         $io = $event->getIO();
