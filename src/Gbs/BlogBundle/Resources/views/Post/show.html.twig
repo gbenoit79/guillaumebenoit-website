@@ -1,38 +1,29 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Post</h1>
+    <section id="post-show">
+        <article>
+            <h2>{{ entity.title }}</h2>
+            <em class="date">{{ entity.created|date('F d, Y') }}</em>
+            <div id="post-body">
+                {{ entity.body }}
+            </div>
+        </article>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ entity.title }}</td>
-            </tr>
-            <tr>
-                <th>Body</th>
-                <td>{{ entity.body }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul class="record_actions">
-    <li>
-        <a href="{{ path('post') }}">
-            Back to the list
-        </a>
-    </li>
-    {% if is_granted('ROLE_ADMIN') %}
-    <li>
-        <a href="{{ path('post_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-    {% endif %}
-</ul>
+        <ul class="actions list-unstyled">
+            <li>
+                <a href="{{ path('post') }}">
+                    Back to the list
+                </a>
+            </li>
+        {% if is_granted('ROLE_ADMIN') %}
+            <li>
+                <a href="{{ path('post_edit', { 'id': entity.id }) }}">
+                    Edit
+                </a>
+            </li>
+            <li>{{ form(delete_form) }}</li>
+        {% endif %}
+        </ul>
+    </section>
 {% endblock %}
