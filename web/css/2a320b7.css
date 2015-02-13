@@ -1,0 +1,33 @@
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+}
+
+#main {
+    width: 780px;
+    margin: auto;
+}
+
+header h1 {
+    text-align: center;
+}
+
+footer {
+    margin: 20px 0;
+    text-align: center;
+}
+.date {
+    font-size: 13px;
+    color: #aaa;
+}
+#post-index .date {
+    margin-left: 10px;
+}
+
+#post-show h2 {
+    text-align: center;
+}
+
+.actions {
+    margin: 20px 0;
+}
