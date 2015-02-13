@@ -1,29 +1,25 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <section id="post-show">
-        <article>
-            <h2>{{ entity.title }}</h2>
-            <em class="date">{{ entity.created|date('F d, Y') }}</em>
-            <div id="post-body">
-                {{ entity.body }}
-            </div>
-        </article>
+    <div class="blog-post">
+        <h2 class="blog-post-title">{{ entity.title }}</h2>
+        <p class="blog-post-meta">{{ entity.created|date('F d, Y') }}</p>
+        <p>{{ entity.body }}</p>
+    </div>
 
-        <ul class="actions list-unstyled">
-            <li>
-                <a href="{{ path('post') }}">
-                    Back to the list
-                </a>
-            </li>
-        {% if is_granted('ROLE_ADMIN') %}
-            <li>
-                <a href="{{ path('post_edit', { 'id': entity.id }) }}">
-                    Edit
-                </a>
-            </li>
-            <li>{{ form(delete_form) }}</li>
-        {% endif %}
-        </ul>
-    </section>
+    <ul class="list-unstyled">
+        <li>
+            <a href="{{ path('post') }}">
+                Back to the list
+            </a>
+        </li>
+    {% if is_granted('ROLE_ADMIN') %}
+        <li>
+            <a href="{{ path('post_edit', { 'id': entity.id }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    {% endif %}
+    </ul>
 {% endblock %}

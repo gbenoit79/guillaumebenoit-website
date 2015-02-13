@@ -1,22 +1,26 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <section id="post-index">
-        <ul class="list-unstyled">
-        {% for entity in entities %}
-            <li>
-                <h2>
-                    <a href="{{ path('post_show', { 'id': entity.id, 'slug': entity.slug }) }}">{{ entity.title }}</a>
-                    <em class="date">{{ entity.created|date('F d, Y') }}</em>
-                </h2>
-                <p>{{ entity.body|slice(0, 140) ~ '...' }}</p>
-                {% if is_granted('ROLE_ADMIN') %}<a href="{{ path('post_edit', { 'id': entity.id }) }}">Edit</a>{% endif %}
-            </li>
-        {% endfor %}
+    {% for entity in entities %}
+        <div class="blog-post">
+            <h2 class="blog-post-title">
+                <a href="{{ path('post_show', { 'id': entity.id, 'slug': entity.slug }) }}">{{ entity.title }}</a>
+            </h2>
+            <p class="blog-post-meta">{{ entity.created|date('F d, Y') }} by <a href="#">Guillaume</a></p>
+            <p>{{ entity.body|slice(0, 140) ~ '...' }}</p>
+            {% if is_granted('ROLE_ADMIN') %}<a href="{{ path('post_edit', { 'id': entity.id }) }}">Edit</a>{% endif %}
+        </div>
+    {% endfor %}
+
+    <nav>
+        <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#">Next</a></li>
         </ul>
+    </nav>
 
     {% if is_granted('ROLE_ADMIN') %}
-        <ul class="actions list-unstyled">
+        <ul class="list-unstyled">
             <li>
                 <a href="{{ path('post_new') }}">
                     Create a new entry
@@ -24,5 +28,4 @@
             </li>
         </ul>
     {% endif %}
-    </section>
 {% endblock %}
