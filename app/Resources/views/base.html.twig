@@ -6,7 +6,7 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
             {% stylesheets filter='?cssrewrite'
-                '@AppBundle/Resources/public/css/*' %}
+                'bundles/app/css/*' %}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
         {% endblock %}
